@@ -15,27 +15,26 @@ class Solution{
         
         // It's a question of Unbounded Knapsack
         
-        int w=n;
         int len[n];
         
         // indexing is 1-based
-        for(int i=1;i<=n;i++){
-            len[i]=i;
+        for(int i=0;i<n;i++){
+            len[i]=i+1;
         }
         // Initiallising the dp s per conditions in question 
-        vector<vector<int>>t(n+1,vector<int>(w+1,0));
+        vector<vector<int>>t(n+1,vector<int>(n+1,0));
         
-        for(int i=1;i<=n;i++){
-            for(int j=1;j<=n;j++){
-                if(len[i]<=j){
-                    t[i][j]=max(price[i-1]+t[i][j-len[i]] , t[i-1][j]);
+        for(int i=1;i<n+1;i++){
+            for(int j=1;j<n+1;j++){
+                if(len[i-1]<=j){
+                    t[i][j]=max(price[i-1]+t[i][j-len[i-1]] , t[i-1][j]);
                 }
                 else{
                     t[i][j]=t[i-1][j];
                 }
             }
         }
-        return t[n][w];
+        return t[n][n];
     }
 };
 
