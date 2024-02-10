@@ -5,7 +5,7 @@
 using namespace std;
 
 // } Driver Code Ends
-class Solution {
+class Solution { 
   public:
   
   // Ref : https://discuss.geeksforgeeks.org/comment/093ce8f4de532dace91cc1e62bd453e3/practice
